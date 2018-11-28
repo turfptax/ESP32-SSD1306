@@ -1,9 +1,13 @@
 
 #-- Main program
-#-- Requires SSD1306 from adafruit
 import machine, ssd1306, socket
 
-# Thank you Ada Fruit
+global ram
+global cur
+
+ram = ['','','','','','','','','','']
+cnt = 0
+
 #Initialize the 128*64 SSD1306 screen pins are 15 & 4 onb
 i2c = machine.I2C(scl=machine.Pin(15), sda=machine.Pin(4))
 #i2c = machine.I2C(scl=machine.Pin(4), sda=machine.Pin(5))
@@ -19,11 +23,13 @@ def screenwipe():
     for y in range(0,64):
       oled.pixel(x,y,1)
     oled.show()
+    oled.text('This cool Jess?',0,40)
 
   for x in range(0,128):
     for y in range(0,64):
       oled.pixel(x,y,0)
     oled.show()
+    oled.text('So cool right?',0,40)
     
 def frint(text):
   global ram
@@ -105,6 +111,5 @@ except:
 #frint(pext)
 
 frint(machine.freq())
-
 
 
