@@ -1,5 +1,5 @@
 
-#-- Main program
+#-- Main program This replaces the boot.py file
 import machine, ssd1306, socket
 
 global ram
@@ -72,7 +72,7 @@ def frint(text):
     ram.append(outp[z])
     #oled.text(outp[z],0,z*10
   for z in range(0,6):
-    oled.text(ram[-(6+z)],0,z*10)
+    oled.text(ram[-(6-z)],0,z*10)
   
   oled.show()
   return outp,'Return of frints buff'
